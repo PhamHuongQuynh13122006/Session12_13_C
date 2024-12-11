@@ -1,34 +1,24 @@
 #include<stdio.h>
 #include<math.h>
-void empty(int rows, int cols){
-    if(rows == 0 || cols == 0){
-        printf("Array is empty");
-        return;
-    }
-}
 //nhapsohang,socot,phan tu
-void Input(int *rows, int *cols,int arr[100][100]){
-    printf("Nhap so hang : ");
-    scanf("%d",rows);
-    printf("Nhap so cot : ");
-    scanf("%d",cols);
-    for(int i = 0; i < *rows; i ++){
-        for(int j = 0; j < *cols; j++){
+void Input(int rows, int cols,int arr[100][100]){
+    for(int i = 0; i < cols; i ++){
+        for(int j = 0; j < rows; j++){
             printf("Phan tu thu [%d][%d] cho ma tran : ", i + 1, j + 1);
-            scanf("%d ",&arr[i][j]);
+            scanf("%d",&arr[i][j]);
         }
     }
 }
 // in theo ma trannn
-void Output(int arr[100][100],int rows, int cols){
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j ++){
-            printf("%d\t",arr[i][j]);
+void Output(int rows, int cols, int arr[100][100]){
+    for(int i = 0; i < cols; i++){
+        for(int j = 0; j < rows; j++){
+            printf("%d\t", arr[i][j]);
         }
         printf("\n");
     }
 }
-//In ra cac phan tu o goc theo ma tran 
+//In ra cac phan tu o goc theo ma tran
 void Conners(int arr[100][100], int rows, int cols){
     if(rows <= 0 || cols <= 0){
         printf("Invalid ^ ^");
@@ -50,7 +40,7 @@ void Conners(int arr[100][100], int rows, int cols){
         }
         printf("\n");
     }*/
-    // ??? wft lai sai 
+    // ??? wft lai sai
 }
 void namtrenduongbien(int rows, int cols, int arr[100][100]){
     for(int i = 0; i < rows; i++){
@@ -71,15 +61,16 @@ void cheochinhcheophu(int rows, int cols, int arr[100][100]){
         printf("%d\t",arr[i][i]);
     }
     printf("\n");
+    printf("Cac phan tu tren duong cheo phu la : ");
     for(int i = 0; i < rows; i++){
         printf("%d\t",arr[i][cols - i - 1]);
     }
     printf("\n");
 }
 //so nguyen to theo ma trannnn
-// ham ktra so nguyen to 
+// ham ktra so nguyen to
 // ham in so nguyen to theo ma tran
-// nhap hang , cot 
+// nhap hang , cot
 // in kqua ...
 int isPrime (int n){
     if(n < 2){
@@ -120,29 +111,28 @@ int main(){
     printf("6. In ra các phần tử là số nguyên tố theo ma trận\n");
     printf("7. Thoát\n");
     printf("Your choice is : ");
-    scanf("%d",&choice);
+    scanf("%d", &choice);
     switch(choice){
         case 1:
-        Input(&rows, &cols, arr);
+            printf("Nhap so cot: ");
+            scanf("%d", &cols);
+            printf("Nhap so hang: ");
+            scanf("%d", &rows);
+            Input(rows, cols, arr);
         break;
         case 2:
-        empty(rows, cols);
-        Output(arr, rows, cols);
+        Output(rows, cols, arr);
         break;
         case 3:
-        empty(rows, cols);
         Conners(arr, rows, cols);
         break;
         case 4:
-        empty(rows, cols);
         namtrenduongbien(rows, cols, arr);
         break;
         case 5:
-        empty(rows, cols);
         cheochinhcheophu(rows, cols, arr);
         break;
         case 6:
-        empty(rows, cols);
         //isPrime(n);//wtfffff
         print(rows, cols, arr);
         break;
@@ -154,36 +144,3 @@ int main(){
     }
     }
 }
-/*
-	=====Menu=====
-1. Nhập giá trị các phần tử của mảng
-2. In giá trị các phần tử của mảng theo ma trận
-3. In ra các phần tử ở góc theo ma trận
-4. In ra các phần tử nằm trên đường biên theo ma trận
-5. In ra các phần tử nằm trên đường chéo chính và chéo phụ theo ma trận
-6. In ra các phần tử là số nguyên tố theo ma trận
-7. Thoát
-Your choice is : 1
-Nhap so hang : 3
-Nhap so cot : 3
-Phan tu thu [1][1] cho ma tran : 2
-8
-Phan tu thu [1][2] cho ma tran : 8
-Phan tu thu [1][3] cho ma tran : 5
-Phan tu thu [2][1] cho ma tran : 8
-Phan tu thu [2][2] cho ma tran : 4
-Phan tu thu [2][3] cho ma tran : 46
-Phan tu thu [3][1] cho ma tran : 9
-Phan tu thu [3][2] cho ma tran : 86
-Phan tu thu [3][3] cho ma tran : 23
-
-	=====Menu=====
-1. Nhập giá trị các phần tử của mảng
-2. In giá trị các phần tử của mảng theo ma trận
-3. In ra các phần tử ở góc theo ma trận
-4. In ra các phần tử nằm trên đường biên theo ma trận
-5. In ra các phần tử nằm trên đường chéo chính và chéo phụ theo ma trận
-6. In ra các phần tử là số nguyên tố theo ma trận
-7. Thoát
-Your choice is : Lua chon khong hop le*/
-//wft loi tu dong chuyen
